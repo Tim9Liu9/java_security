@@ -64,14 +64,14 @@ public class RSATest
 			
 			
 			
-			// 4.私钥解密、公钥加密 ---- 加密
+			// 4.公钥加密、私钥解密 ---- 加密
 			X509EncodedKeySpec x509EncodedKeySpec2 = new X509EncodedKeySpec(rsaPublicKey.getEncoded());
 			KeyFactory keyFactory2 = KeyFactory.getInstance("RSA");
 			PublicKey publicKey2 = keyFactory2.generatePublic(x509EncodedKeySpec2);
 			Cipher cipher2 = Cipher.getInstance("RSA");
 			cipher2.init(Cipher.ENCRYPT_MODE, publicKey2);
 			byte[] result2 = cipher2.doFinal(src.getBytes());
-			System.out.println("私钥加密、公钥解密 ---- 加密:" + Base64.encodeBase64String(result2));
+			System.out.println("公钥加密、私钥解密 ---- 加密:" + Base64.encodeBase64String(result2));
 			
 			// 5.私钥解密、公钥加密 ---- 解密
 			PKCS8EncodedKeySpec pkcs8EncodedKeySpec5 = new PKCS8EncodedKeySpec(rsaPrivateKey.getEncoded());
@@ -80,7 +80,7 @@ public class RSATest
 			Cipher cipher5 = Cipher.getInstance("RSA");
 			cipher5.init(Cipher.DECRYPT_MODE, privateKey5);
 			byte[] result5 = cipher5.doFinal(result2);
-			System.out.println("私钥加密、公钥解密 ---- 解密:" + new String(result5));
+			System.out.println("公钥加密、私钥解密 ---- 解密:" + new String(result5));
 			
 		} catch (Exception e) {
 			

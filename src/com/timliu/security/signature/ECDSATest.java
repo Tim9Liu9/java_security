@@ -24,7 +24,7 @@ import com.sun.xml.internal.fastinfoset.algorithm.HexadecimalEncodingAlgorithm;
 
 public class ECDSATest 
 {
-	public static final String src = "DSA security is security";
+	public static final String src = "ECDSA security is security";
 	
 	public static void main(String[] args) 
 	{

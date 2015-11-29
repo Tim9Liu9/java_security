@@ -9,7 +9,7 @@ import org.bouncycastle.crypto.Digest;
 import org.bouncycastle.crypto.digests.SHA1Digest;
 import org.bouncycastle.crypto.digests.SHA224Digest;
 import org.bouncycastle.jce.provider.BouncyCastleProvider;
-
+import java.math.BigInteger;
 
 
 
@@ -22,6 +22,7 @@ public class SHATest
 		bcSHA1();
 		bcSHA224();
 		bcSHA224b();
+		generateSha256();
 		ccSHA1();
 
 	}
@@ -77,6 +78,14 @@ public class SHATest
 		} catch (Exception e) {
 			e.printStackTrace();
 		}		
+	}
+	public static void generateSha256() {
+		MessageDigest md = MessageDigest.getInstance("SHA-256");
+
+        md.update(src.getBytes("UTF-8")); // Change this to "UTF-16" if needed
+        byte[] digest = md.digest();
+        BigInteger bigInt = new BigInteger(1, digest);
+        System.out.println("Sha256 hash: " + bigInt.toString(16));
 	}
 	
 	// 用common codes实现实现:SHA1
